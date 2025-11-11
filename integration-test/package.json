@@ -1,0 +1,27 @@
+{
+  "name": "integration-test",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@form-renderer/engine": "workspace:*",
+    "@form-renderer/adapter-vue3": "workspace:*",
+    "@form-renderer/preset-element-plus": "workspace:*",
+    "@form-renderer/starter-element-plus": "workspace:*",
+    "vue": "^3.5.0",
+    "element-plus": "^2.8.8",
+    "@element-plus/icons-vue": "^2.3.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.0",
+    "@vue/tsconfig": "^0.8.1",
+    "typescript": "~5.9.3",
+    "vite": "^7.1.7",
+    "vue-tsc": "^3.1.0"
+  }
+}

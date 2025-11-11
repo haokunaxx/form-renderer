@@ -1,0 +1,7 @@
+dist
+lib
+public
+
+*.d.ts
+
+*.md

@@ -1,0 +1,55 @@
+{
+  "name": "@form-renderer/preset-element-plus",
+  "version": "0.1.0",
+  "description": "ElementPlus preset for form-renderer",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./style": "./dist/index.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc -b && vite build",
+    "build:lib": "vite build --mode lib && node scripts/post-build.js",
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:ui": "vitest --ui"
+  },
+  "keywords": [
+    "form-renderer",
+    "element-plus",
+    "vue",
+    "preset",
+    "form"
+  ],
+  "author": "form-renderer team",
+  "license": "MIT",
+  "peerDependencies": {
+    "element-plus": "^2.0.0",
+    "vue": "^3.0.0"
+  },
+  "dependencies": {
+    "@element-plus/icons-vue": "^2.3.2",
+    "@form-renderer/adapter-vue3": "workspace:*",
+    "element-plus": "^2.8.8",
+    "vue": "^3.5.22"
+  },
+  "devDependencies": {
+    "@types/node": "^24.6.0",
+    "@vitejs/plugin-vue": "^6.0.1",
+    "@vue/tsconfig": "^0.8.1",
+    "typescript": "~5.9.3",
+    "vite": "^7.1.7",
+    "vitest": "^2.0.0",
+    "vue-tsc": "^3.1.0"
+  }
+}

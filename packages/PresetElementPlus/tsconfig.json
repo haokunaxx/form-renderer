@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "@form-renderer/engine": ["../Engine/src"],
+      "@form-renderer/adapter-vue3": ["../Adapter/src"]
+    }
+  },
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
+}
