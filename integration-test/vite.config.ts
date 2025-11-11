@@ -13,7 +13,7 @@ export default defineConfig({
       ),
       '@form-renderer/adapter-vue3': resolve(
         __dirname,
-        '../packages/Adapter/src/index.ts'
+        '../packages/AdapterVue3/src/index.ts'
       ),
       '@form-renderer/preset-element-plus': resolve(
         __dirname,

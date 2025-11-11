@@ -13,7 +13,7 @@ export default defineConfig(({ mode }) => {
         '@': resolve(__dirname, 'src'),
         '@form-renderer/adapter-vue3': resolve(
           __dirname,
-          '../Adapter/src/index.ts'
+          '../AdapterVue3/src/index.ts'
         ),
         '@form-renderer/engine': resolve(__dirname, '../Engine/src/index.ts')
       }

@@ -951,7 +951,7 @@ describe('FormAdapter with MyUI Preset', () => {
 
 ### 2. 作为预设集成到 Adapter
 
-将预设放在 `packages/Adapter/src/presets/` 目录下。
+将预设放在 `packages/AdapterVue3/src/presets/` 目录下。
 
 ## 最佳实践
 

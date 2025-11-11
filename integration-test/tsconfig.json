@@ -19,7 +19,7 @@
     "paths": {
       "@/*": ["./src/*"],
       "@form-renderer/engine": ["../packages/Engine/src"],
-      "@form-renderer/adapter-vue3": ["../packages/Adapter/src"],
+      "@form-renderer/adapter-vue3": ["../packages/AdapterVue3/src"],
       "@form-renderer/preset-element-plus": [
         "../packages/PresetElementPlus/src"
       ],

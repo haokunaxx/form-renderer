@@ -16,7 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@form-renderer/engine": ["../Engine/src"],
-      "@form-renderer/adapter-vue3": ["../Adapter/src"]
+      "@form-renderer/adapter-vue3": ["../AdapterVue3/src"]
     }
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"]

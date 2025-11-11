@@ -5,7 +5,7 @@ FormAdapter 的项目结构和模块组织说明。
 ## 目录结构
 
 ```
-packages/Adapter/
+packages/AdapterVue3/
 ├── src/                          # 源代码
 │   ├── index.ts                  # 主入口文件
 │   ├── types.ts                  # 类型定义

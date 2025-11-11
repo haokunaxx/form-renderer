@@ -402,6 +402,6 @@ MIT License
 ## 🔗 相关包
 
 - [@form-renderer/engine](../Engine) - 表单引擎核心
-- [@form-renderer/adapter-vue3](../Adapter) - Vue3 适配器
+- [@form-renderer/adapter-vue3](../AdapterVue3) - Vue3 适配器
 - [@form-renderer/preset-element-plus](../PresetElementPlus) - ElementPlus 组件预设
 

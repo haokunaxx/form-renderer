@@ -6,7 +6,7 @@
 import type {
   ComponentDefinition,
   ComponentPreset
-} from '@form-renderer/adapter-vue3'
+} from '../../AdapterVue3/dist'
 import { getDefaultTransformer } from './value-transformers'
 import { getDefaultEventMapping } from './event-mapping'
 import { convertToElementPlusRules } from './validation'

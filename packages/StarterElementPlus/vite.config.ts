@@ -14,7 +14,7 @@ export default defineConfig(({ mode }) => {
         '@form-renderer/engine': resolve(__dirname, '../Engine/src/index.ts'),
         '@form-renderer/adapter-vue3': resolve(
           __dirname,
-          '../Adapter/src/index.ts'
+          '../AdapterVue3/src/index.ts'
         ),
         '@form-renderer/preset-element-plus': resolve(
           __dirname,
