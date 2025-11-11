@@ -3,14 +3,7 @@
   "changelog": "@changesets/cli/changelog",
   "commit": false,
   "fixed": [],
-  "linked": [
-    [
-      "@form-renderer/adapter-vue3",
-      "@form-renderer/engine",
-      "@form-renderer/preset-element-plus",
-      "@form-renderer/starter-element-plus"
-    ]
-  ],
+  "linked": [["@form-renderer/*"]],
   "access": "public",
   "baseBranch": "master",
   "updateInternalDependencies": "patch",

@@ -95,7 +95,7 @@ importers:
         version: 2.3.2(vue@3.5.22(typescript@5.9.3))
       '@form-renderer/adapter-vue3':
         specifier: workspace:*
-        version: link:../packages/Adapter
+        version: link:../packages/AdapterVue3
       '@form-renderer/engine':
         specifier: workspace:*
         version: link:../packages/Engine
@@ -128,7 +128,7 @@ importers:
         specifier: ^3.1.0
         version: 3.1.2(typescript@5.9.3)
 
-  packages/Adapter:
+  packages/AdapterVue3:
     dependencies:
       '@form-renderer/engine':
         specifier: workspace:*
@@ -187,7 +187,7 @@ importers:
         version: 2.3.2(vue@3.5.22(typescript@5.9.3))
       '@form-renderer/adapter-vue3':
         specifier: workspace:*
-        version: link:../Adapter
+        version: link:../AdapterVue3
       element-plus:
         specifier: ^2.8.8
         version: 2.11.5(vue@3.5.22(typescript@5.9.3))
@@ -212,7 +212,7 @@ importers:
         version: 7.1.12(@types/node@24.9.1)(jiti@2.6.1)(tsx@4.20.6)
       vitest:
         specifier: ^2.0.0
-        version: 2.1.9(@types/node@24.9.1)(jsdom@23.2.0)
+        version: 2.1.9(@types/node@24.9.1)(@vitest/ui@1.6.1(vitest@1.6.1))(jsdom@23.2.0)
       vue-tsc:
         specifier: ^3.1.0
         version: 3.1.2(typescript@5.9.3)
@@ -221,7 +221,7 @@ importers:
     dependencies:
       '@form-renderer/adapter-vue3':
         specifier: workspace:*
-        version: link:../Adapter
+        version: link:../AdapterVue3
       '@form-renderer/engine':
         specifier: workspace:*
         version: link:../Engine
@@ -7202,7 +7202,7 @@ snapshots:
       - supports-color
       - terser
 
-  vitest@2.1.9(@types/node@24.9.1)(jsdom@23.2.0):
+  vitest@2.1.9(@types/node@24.9.1)(@vitest/ui@1.6.1(vitest@1.6.1))(jsdom@23.2.0):
     dependencies:
       '@vitest/expect': 2.1.9
       '@vitest/mocker': 2.1.9(vite@5.4.21(@types/node@24.9.1))
@@ -7226,6 +7226,7 @@ snapshots:
       why-is-node-running: 2.3.0
     optionalDependencies:
       '@types/node': 24.9.1
+      '@vitest/ui': 1.6.1(vitest@1.6.1)
       jsdom: 23.2.0
     transitivePeerDependencies:
       - less

@@ -1,0 +1,14 @@
+{
+  "mode": "pre",
+  "tag": "alpha",
+  "initialVersions": {
+    "integration-test": "0.1.0",
+    "@form-renderer/adapter-vue3": "0.1.0",
+    "@form-renderer/engine": "0.1.0",
+    "@form-renderer/preset-element-plus": "0.1.0",
+    "@form-renderer/starter-element-plus": "0.1.0"
+  },
+  "changesets": [
+    "brave-loops-yell"
+  ]
+}

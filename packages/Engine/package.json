@@ -1,6 +1,6 @@
 {
   "name": "@form-renderer/engine",
-  "version": "0.1.0",
+  "version": "1.0.0-alpha.0",
   "description": "一个基于 JSON Schema 的表单引擎",
   "type": "module",
   "main": "./dist/index.js",
@@ -22,8 +22,7 @@
     "test:ui": "vitest --ui",
     "debug": "npx tsx",
     "build": "tsc",
-    "build:prod": "tsc --project tsconfig.prod.json",
-    "build:lib": "tsc",
+    "build:lib": "tsc --project tsconfig.prod.json",
     "type-check": "tsc --noEmit"
   },
   "keywords": [
