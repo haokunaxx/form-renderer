@@ -1,6 +1,6 @@
 {
   "name": "@form-renderer/starter-element-plus",
-  "version": "1.0.0-alpha.0",
+  "version": "1.0.0-alpha.4",
   "description": "开箱即用的 ElementPlus 表单渲染器启动器",
   "type": "module",
   "main": "./dist/index.js",

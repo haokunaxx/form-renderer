@@ -1,3 +1,4 @@
 packages: 
   - packages/**
   - integration-test
+  - release-version-verification-project

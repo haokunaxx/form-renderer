@@ -8,6 +8,12 @@ import FormRenderer from './FormRenderer.vue'
 import { FormEngine } from '@form-renderer/engine'
 import { ElementPlusPreset } from '@form-renderer/preset-element-plus'
 
+/**
+ * 样式入口文件
+ * 导入预设组件的样式
+ */
+import '@form-renderer/preset-element-plus/style.css'
+
 // 导出组件
 export { FormRenderer }
 

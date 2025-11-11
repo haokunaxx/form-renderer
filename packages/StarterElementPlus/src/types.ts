@@ -8,6 +8,14 @@ import type {
   ComponentPreset
 } from '@form-renderer/adapter-vue3'
 
+export {
+  ComponentDefinition,
+  ComponentPreset,
+  FormSchema,
+  FormModel,
+  FormEngine
+}
+
 export interface FormRendererProps {
   /**
    * 表单 Schema 配置

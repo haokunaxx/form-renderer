@@ -41,13 +41,13 @@ export default defineConfig(({ mode }) => {
                 '@element-plus/icons-vue': 'ElementPlusIconsVue',
                 '@form-renderer/adapter-vue3': 'FormRendererAdapter',
                 '@form-renderer/engine': 'FormRendererEngine'
-              },
-              assetFileNames: (assetInfo) => {
-                if (assetInfo.name === 'style.css') {
-                  return 'style.css'
-                }
-                return assetInfo.name || 'asset'
               }
+              // assetFileNames: (assetInfo) => {
+              //   if (assetInfo.name === 'style.css') {
+              //     return 'style.css'
+              //   }
+              //   return assetInfo.name || 'asset'
+              // }
             }
           },
           cssCodeSplit: false,

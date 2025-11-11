@@ -4,6 +4,9 @@ node_modules
 
 **/dev/**/*
 
+# release版本验证项目
+release-version-verification-project
+
 
 # Logs
 logs

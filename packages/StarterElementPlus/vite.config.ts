@@ -19,6 +19,10 @@ export default defineConfig(({ mode }) => {
         '@form-renderer/preset-element-plus': resolve(
           __dirname,
           '../PresetElementPlus/src/index.ts'
+        ),
+        '@form-renderer/preset-element-plus/style': resolve(
+          __dirname,
+          '../PresetElementPlus/dist/index.css'
         )
       }
     },
@@ -36,7 +40,8 @@ export default defineConfig(({ mode }) => {
               'element-plus',
               '@form-renderer/engine',
               '@form-renderer/adapter-vue3',
-              '@form-renderer/preset-element-plus'
+              '@form-renderer/preset-element-plus',
+              '@form-renderer/preset-element-plus/style.css'
             ],
             output: {
               globals: {
