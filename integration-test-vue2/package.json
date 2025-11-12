@@ -1,0 +1,23 @@
+{
+  "name": "integration-test-vue2",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build"
+  },
+  "dependencies": {
+    "core-js": "^3.8.3",
+    "vue": "^2.6.14",
+    "element-ui": "^2.15.14",
+    "@form-renderer/engine": "workspace:*",
+    "@form-renderer/adapter-vue2": "workspace:*",
+    "@form-renderer/preset-element-ui": "workspace:*"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~5.0.0",
+    "@vue/cli-plugin-eslint": "~5.0.0",
+    "@vue/cli-service": "~5.0.0",
+    "vue-template-compiler": "^2.6.14"
+  }
+}

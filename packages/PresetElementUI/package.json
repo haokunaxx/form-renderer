@@ -1,10 +1,11 @@
 {
-  "name": "@form-renderer/adapter-vue2",
+  "name": "@form-renderer/preset-element-ui",
   "version": "1.0.0-alpha.0",
-  "description": "Vue2 adapter for FormEngine",
+  "description": "ElementUI preset for form-renderer Vue2 adapter",
   "main": "dist/index.umd.js",
   "module": "dist/index.common.js",
   "unpkg": "dist/index.umd.js",
+  "style": "dist/style.css",
   "files": [
     "dist"
   ],
@@ -13,31 +14,35 @@
     "build": "vue-cli-service build --target lib --name index src/index.js",
     "lint": "vue-cli-service lint"
   },
+  "keywords": [
+    "form-renderer",
+    "element-ui",
+    "vue",
+    "vue2",
+    "preset",
+    "form"
+  ],
+  "author": "form-renderer team",
+  "license": "MIT",
+  "peerDependencies": {
+    "element-ui": "^2.x",
+    "vue": "^2.6.0 || ^2.7.0"
+  },
   "dependencies": {
-    "vue": "^2.6.14",
-    "core-js": "^3.38.0"
+    "@form-renderer/adapter-vue2": "workspace:*",
+    "@form-renderer/engine": "workspace:*",
+    "@form-renderer/share": "workspace:*"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~5.0.0",
     "@vue/cli-plugin-eslint": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
     "babel-eslint": "^10.1.0",
+    "core-js": "^3.46.0",
+    "element-ui": "^2.15.14",
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^8.0.3",
+    "vue": "^2.6.14",
     "vue-template-compiler": "^2.6.14"
-  },
-  "peerDependencies": {
-    "vue": "^2.6.0 || ^2.7.0",
-    "@form-renderer/engine": "workspace:*",
-    "@form-renderer/share": "workspace:*"
-  },
-  "keywords": [
-    "form",
-    "form-engine",
-    "vue2",
-    "adapter",
-    "form-renderer"
-  ],
-  "author": "",
-  "license": "MIT"
+  }
 }

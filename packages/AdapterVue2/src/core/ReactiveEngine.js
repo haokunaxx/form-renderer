@@ -54,7 +54,6 @@ export class ReactiveEngine {
   setupEventListeners() {
     const unsubscribe = this.engine.onValueChange((event) => {
       if (this.isDestroyed) return
-
       if (event.event.kind === 'value') {
         this.handleValueChange(event)
       } else if (event.event.kind === 'structure') {
@@ -79,7 +78,6 @@ export class ReactiveEngine {
   handleValueChange(_event) {
     // 获取新的 model 引用（Engine 已做结构共享优化）
     const newModel = this.engine.getValue()
-
     // 直接赋值，Vue 会检测引用变化
     // 如果引用相同，Vue 不会触发更新
     // 如果引用不同，Vue 会触发更新
@@ -97,6 +95,12 @@ export class ReactiveEngine {
    * Engine 同样会返回新的 renderSchema 引用
    */
   handleStructureChange() {
+    console.log(
+      '---> ReactiveEngine handleStructureChange',
+      this.engine.getRenderSchema() === this.state.renderSchema
+    )
+    const newModel = this.engine.getValue()
+    this.state.model = newModel
     // 直接获取并赋值新引用
     this.state.renderSchema = this.engine.getRenderSchema()
   }
@@ -156,9 +160,27 @@ export class ReactiveEngine {
 
   /**
    * 获取列表操作器
+   * 返回一个包装了 FormEngine list 方法的对象
    */
   getListOperator(path) {
-    return this.engine.getListOperator(path)
+    if (this.isDestroyed) {
+      throw new Error('Cannot get list operator from destroyed ReactiveEngine')
+    }
+    // 返回一个包装对象，将方法委托给 FormEngine
+    return {
+      add: (row) => {
+        this.engine.listAppend(path, row)
+      },
+      append: (row) => {
+        this.engine.listAppend(path, row)
+      },
+      insert: (index, row) => this.engine.listInsert(path, index, row),
+      remove: (index) => this.engine.listRemove(path, index),
+      move: (from, to) => this.engine.listMove(path, from, to),
+      swap: (a, b) => this.engine.listSwap(path, a, b),
+      replace: (index, row) => this.engine.listReplace(path, index, row),
+      clear: () => this.engine.listClear(path)
+    }
   }
 
   /**

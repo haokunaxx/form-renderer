@@ -1,4 +1,5 @@
 packages: 
   - packages/**
   - integration-test
+  - integration-test-vue2
   - release-version-verification-project

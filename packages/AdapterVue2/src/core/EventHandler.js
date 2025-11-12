@@ -30,9 +30,8 @@ export class EventHandler {
    * @param {*} value - 新值（组件值）
    * @param {string} componentName - 组件名称
    */
-  handleFieldChange(path, value, componentName) {
+  async handleFieldChange(path, value, componentName) {
     const componentDef = this.registry.get(componentName)
-
     // 应用值转换器（组件值 → 引擎值）
     let engineValue = value
     if (componentDef && componentDef.valueTransformer) {
@@ -43,7 +42,6 @@ export class EventHandler {
         return
       }
     }
-
     // 批量更新或立即更新
     if (this.batcher) {
       this.batcher.add({ path, value: engineValue })
@@ -79,6 +77,7 @@ export class EventHandler {
   handleListAdd(path, value) {
     const operator = this.engine.getListOperator(path)
     if (operator) {
+      console.log('---> EventHandler handleListAdd', path, value)
       operator.add(value)
     }
   }

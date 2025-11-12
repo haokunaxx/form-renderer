@@ -1,9 +1,10 @@
 <template>
   <component
+    v-if="shouldRender"
     :is="containerComponent"
-    v-if="node && containerComponent"
     ref="containerRef"
-    v-bind="containerProps"
+    :node="node"
+    :context="context"
     @field-change="$emit('field-change', $event)"
     @field-blur="$emit('field-blur', $event)"
     @field-focus="$emit('field-focus', $event)"
@@ -42,43 +43,33 @@ export default {
 
   computed: {
     /**
-     * 容器组件
+     * 判断节点是否应该渲染
+     * ifShow 控制节点是否在 DOM 中（v-if）
+     */
+    shouldRender() {
+      return this.node.computed?.ifShow !== false
+    },
+
+    /**
+     * 根据节点类型选择对应的渲染组件
      */
     containerComponent() {
       if (!this.node) return null
 
-      const { type } = this.node
-
-      switch (type) {
-        case 'form':
-          return 'FormContainer'
-        case 'layout':
-          return 'LayoutContainer'
-        case 'list':
-          return 'ListContainer'
-        case 'field':
-          return 'FieldWrapper'
-        default:
-          console.warn(`[SchemaRenderer] Unknown node type: ${type}`)
-          return null
+      const renderers = {
+        form: 'FormContainer',
+        layout: 'LayoutContainer',
+        list: 'ListContainer',
+        field: 'FieldWrapper'
       }
-    },
 
-    /**
-     * 容器属性
-     */
-    containerProps() {
-      return {
-        node: this.node,
-        context: this.context
+      const component = renderers[this.node.type]
+      if (!component) {
+        console.warn(`[SchemaRenderer] Unknown node type: ${this.node.type}`)
+        return null
       }
-    },
 
-    /**
-     * 容器引用
-     */
-    containerRef() {
-      return this.$refs.containerRef
+      return component
     }
   }
 }

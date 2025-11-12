@@ -5,6 +5,7 @@
     <SchemaRenderer
       v-if="renderSchema && renderContext"
       ref="schemaRenderer"
+      :model="currentModel"
       :node="renderSchema"
       :context="renderContext"
       @field-change="handleFieldChange"
@@ -39,7 +40,7 @@ export default {
       type: Object,
       required: true
     },
-    model: {
+    value: {
       type: Object,
       default: () => ({})
     },
@@ -58,7 +59,9 @@ export default {
       // 核心实例（非响应式）
       reactiveEngine: null,
       componentRegistry: null,
-      eventHandler: null
+      eventHandler: null,
+      // 响应式状态的直接引用
+      reactiveState: null
     }
   },
 
@@ -67,9 +70,18 @@ export default {
      * 渲染 Schema（响应式）
      */
     renderSchema() {
-      if (!this.reactiveEngine) return null
+      if (!this.reactiveState) return null
       // 💡 关键：直接访问响应式状态
-      return this.reactiveEngine.getRenderSchema()
+      return this.reactiveState.renderSchema
+    },
+
+    /**
+     * 当前 Model（响应式）
+     */
+    currentModel() {
+      if (!this.reactiveState) return null
+      console.log('---> currentModel', JSON.stringify(this.reactiveState.model))
+      return this.reactiveState.model
     },
 
     /**
@@ -92,7 +104,8 @@ export default {
         formItem: this.getFormItem(),
         ruleConverter: this.getRuleConverter(),
         path: [],
-        depth: 0
+        depth: 0,
+        model: this.currentModel
       }
     },
 
@@ -131,13 +144,8 @@ export default {
     /**
      * 监听 model 变化，向外通知
      */
-    'reactiveEngine.state.model': {
-      handler(newModel) {
-        if (newModel) {
-          this.$emit('update:model', newModel)
-        }
-      },
-      deep: false // 浅监听
+    currentModel(newModel) {
+      this.$emit('input', newModel)
     }
   },
 
@@ -169,12 +177,15 @@ export default {
       // 3. 创建响应式引擎
       this.reactiveEngine = createReactiveEngine({
         schema: this.schema,
-        model: this.model,
+        model: this.value,
         enableUpdateScheduler:
           this.options &&
           this.options.engine &&
           this.options.engine.enableUpdateScheduler
       })
+
+      // 💡 关键：直接引用响应式状态，建立响应式连接
+      this.reactiveState = this.reactiveEngine.state
 
       // 4. 创建事件处理器
       this.eventHandler = createEventHandler(
