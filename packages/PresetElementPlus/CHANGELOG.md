@@ -1,5 +1,13 @@
 # @form-renderer/preset-element-plus
 
+## 1.0.0-alpha.5
+
+### Patch Changes
+
+- package.json调整
+- Updated dependencies
+  - @form-renderer/adapter-vue3@1.0.0-alpha.5
+
 ## 1.0.0-alpha.4
 
 ### Patch Changes

@@ -9,21 +9,7 @@ export default defineConfig(({ mode }) => {
     plugins: [vue()],
     resolve: {
       alias: {
-        '@': resolve(__dirname, './src'),
-        // 开发环境直接使用源码
-        '@form-renderer/engine': resolve(__dirname, '../Engine/src/index.ts'),
-        '@form-renderer/adapter-vue3': resolve(
-          __dirname,
-          '../AdapterVue3/src/index.ts'
-        ),
-        '@form-renderer/preset-element-plus': resolve(
-          __dirname,
-          '../PresetElementPlus/src/index.ts'
-        ),
-        '@form-renderer/preset-element-plus/style': resolve(
-          __dirname,
-          '../PresetElementPlus/dist/index.css'
-        )
+        '@': resolve(__dirname, './src')
       }
     },
     build: isLib

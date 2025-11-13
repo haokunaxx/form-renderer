@@ -1,6 +1,6 @@
 {
   "name": "@form-renderer/adapter-vue3",
-  "version": "1.0.0-alpha.0",
+  "version": "1.0.0-alpha.5",
   "description": "Vue3 adapter for FormEngine",
   "type": "module",
   "main": "./dist/index.js",
@@ -8,9 +8,8 @@
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs",
-      "types": "./dist/index.d.ts"
+      "import": "./src/index.ts",
+      "types": "./src/types.ts"
     },
     "./style.css": "./dist/style.css"
   },

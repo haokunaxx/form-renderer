@@ -8,12 +8,6 @@ import FormRenderer from './FormRenderer.vue'
 import { FormEngine } from '@form-renderer/engine'
 import { ElementPlusPreset } from '@form-renderer/preset-element-plus'
 
-/**
- * 样式入口文件
- * 导入预设组件的样式
- */
-import '@form-renderer/preset-element-plus/style.css'
-
 // 导出组件
 export { FormRenderer }
 
@@ -24,17 +18,11 @@ export { FormEngine, ElementPlusPreset }
 export * from './types'
 
 // 重新导出常用类型
-export type {
-  FormSchema,
-  FieldSchema,
-  ContainerSchema,
-  FormModel
-} from '@form-renderer/engine'
+export type { FormSchema, FormModel } from '@form-renderer/engine'
 
 export type {
   ComponentDefinition,
-  FieldComponentProps,
-  ContainerComponentProps
+  FieldComponentProps
 } from '@form-renderer/adapter-vue3'
 
 // 导出预设的所有组件

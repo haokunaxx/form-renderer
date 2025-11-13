@@ -1,6 +1,6 @@
 {
   "name": "@form-renderer/engine",
-  "version": "1.0.0-alpha.0",
+  "version": "1.0.0-alpha.5",
   "description": "一个基于 JSON Schema 的表单引擎",
   "type": "module",
   "main": "./dist/index.js",
@@ -8,6 +8,7 @@
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
+      "development": "./src/index.ts",
       "import": "./dist/index.js",
       "types": "./dist/index.d.ts"
     }
@@ -21,6 +22,7 @@
     "test:coverage": "vitest run --coverage",
     "test:ui": "vitest --ui",
     "debug": "npx tsx",
+    "clean": "rm -rf dist *.tsbuildinfo",
     "build": "tsc",
     "build:lib": "tsc --project tsconfig.prod.json",
     "type-check": "tsc --noEmit"

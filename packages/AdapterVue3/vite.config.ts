@@ -22,8 +22,7 @@ export default defineConfig({
 
   resolve: {
     alias: {
-      '@': resolve(__dirname, './src'),
-      '@form-renderer/engine': resolve(__dirname, '../Engine/src/index.ts')
+      '@': resolve(__dirname, './src')
     }
   },
 

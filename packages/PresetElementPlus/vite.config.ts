@@ -10,12 +10,7 @@ export default defineConfig(({ mode }) => {
     plugins: [vue()],
     resolve: {
       alias: {
-        '@': resolve(__dirname, 'src'),
-        '@form-renderer/adapter-vue3': resolve(
-          __dirname,
-          '../AdapterVue3/src/index.ts'
-        ),
-        '@form-renderer/engine': resolve(__dirname, '../Engine/src/index.ts')
+        '@': resolve(__dirname, 'src')
       }
     },
     build: isLib
