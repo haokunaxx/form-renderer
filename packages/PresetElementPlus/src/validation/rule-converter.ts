@@ -49,7 +49,7 @@ export function convertToElementPlusRules(
     rules.push({
       required: true,
       message: `${node.label || '此项'}不能为空`,
-      trigger: 'blur'
+      trigger: 'change'
     })
   }
 

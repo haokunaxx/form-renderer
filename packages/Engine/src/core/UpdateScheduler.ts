@@ -250,12 +250,13 @@ export class UpdateScheduler {
               prevValue: change.prevValue,
               nextValue: change.nextValue
             }
+            this.onValueChange?.({ path, event, batchId }) // 值发生变更时立马出发更新回调函数
             await this.subscribeManager.emit({ path, event, batchId }, (p, v) =>
               this.scheduleUpdate(p, v)
             )
 
             // 收集事件，稍后统一触发
-            allChangeEvents.push({ path, event, batchId })
+            // allChangeEvents.push({ path, event, batchId })
           }
         }
 
