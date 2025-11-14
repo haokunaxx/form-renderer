@@ -9,7 +9,17 @@ export default defineConfig(({ mode }) => {
     plugins: [vue()],
     resolve: {
       alias: {
-        '@': resolve(__dirname, './src')
+        '@': resolve(__dirname, './src'),
+        '@form-renderer/preset-element-plus/style.css': resolve(
+          __dirname,
+          './src/empty.css'
+        ),
+        '@form-renderer/engine': resolve(__dirname, '../Engine/src'),
+        '@form-renderer/adapter-vue3': resolve(__dirname, '../AdapterVue3/src'),
+        '@form-renderer/preset-element-plus': resolve(
+          __dirname,
+          '../PresetElementPlus/src'
+        )
       }
     },
     build: isLib

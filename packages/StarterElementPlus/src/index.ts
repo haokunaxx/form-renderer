@@ -1,3 +1,4 @@
+console.log('++++', 'StarterElementPlus')
 /**
  * @form-renderer/starter-element-plus
  * 开箱即用的 ElementPlus 表单渲染器
@@ -7,7 +8,7 @@ import type { App } from 'vue'
 import FormRenderer from './FormRenderer.vue'
 import { FormEngine } from '@form-renderer/engine'
 import { ElementPlusPreset } from '@form-renderer/preset-element-plus'
-
+import '@form-renderer/preset-element-plus/style.css'
 // 导出组件
 export { FormRenderer }
 

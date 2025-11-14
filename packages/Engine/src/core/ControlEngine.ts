@@ -53,7 +53,6 @@ export class ControlEngine {
    */
   computeAll(renderNode: RenderNode): RenderNode {
     const newNode = this.computeNode(renderNode)
-
     // 🔥 向后兼容：同时原地更新传入的节点
     // 这样即使测试代码没有保存返回值，也能正常工作
     if (newNode !== renderNode) {

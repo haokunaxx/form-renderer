@@ -4,8 +4,6 @@ import type { FormModel, JsonSchemaNode } from '@form-renderer/engine'
 import type { ComponentDefinition } from '@form-renderer/adapter-vue3'
 import { commonFieldEventMapping } from '@form-renderer/preset-element-plus'
 import { FormRenderer } from '@form-renderer/starter-element-plus'
-import { FormEngine } from '@form-renderer/engine'
-console.log('FormEngine', FormEngine)
 import DynamicField from '@/custom/DynamicField.vue'
 
 import { ComplexDemoSchema, ComplexDemoModel } from '@/cases'

@@ -58,6 +58,7 @@ export class UpdateScheduler {
     path: string
     event: ValueEvent | StructureEvent
     batchId: string
+    phase: 'immediate' | 'computed' // 'immediate': 值更新后立即触发, 'computed': renderNode 更新后触发
   }) => void
 
   /**
@@ -77,6 +78,7 @@ export class UpdateScheduler {
         path: string
         event: ValueEvent | StructureEvent
         batchId: string
+        phase: 'immediate' | 'computed'
       }) => void
     }
   ) {
@@ -208,8 +210,15 @@ export class UpdateScheduler {
         this.pendingUpdates.clear()
         this.pendingListOperations.clear()
 
-        // 收集所有需要触发的事件（列表操作和值更新）
-        const allChangeEvents: Array<{
+        // 收集所有需要触发的事件
+        // listChangeEvents: 列表操作事件（在 renderNode 更新后触发）
+        // valueChangeEvents: 普通字段事件（需要触发两次：immediate 和 computed）
+        const listChangeEvents: Array<{
+          path: string
+          event: ValueEvent | StructureEvent
+          batchId: string
+        }> = []
+        const valueChangeEvents: Array<{
           path: string
           event: ValueEvent | StructureEvent
           batchId: string
@@ -226,10 +235,10 @@ export class UpdateScheduler {
           )
 
           // 收集事件，稍后统一触发
-          allChangeEvents.push({ path: listPath, event, batchId })
+          listChangeEvents.push({ path: listPath, event, batchId })
         }
 
-        // 2. 处理值更新（先收集所有事件，暂不触发 onValueChange）
+        // 2. 处理值更新
         for (const [path, value] of updates) {
           const schema = this.getSchemaByPath(path)
           if (schema?.type === 'list') {
@@ -241,7 +250,7 @@ export class UpdateScheduler {
             )
 
             // 收集事件，稍后统一触发
-            allChangeEvents.push({ path, event, batchId })
+            listChangeEvents.push({ path, event, batchId })
           } else {
             // 普通字段：更新值
             const change = this.modelManager.setValue(path, value)
@@ -250,24 +259,33 @@ export class UpdateScheduler {
               prevValue: change.prevValue,
               nextValue: change.nextValue
             }
-            this.onValueChange?.({ path, event, batchId }) // 值发生变更时立马出发更新回调函数
+
+            // 立即触发 onValueChange（immediate 阶段）
+            // 此时模型值已更新，但 renderNode 还未重新计算
+            // 用于解决 UI 组件库同步校验时需要立即获取新值的问题
+            this.onValueChange?.({ path, event, batchId, phase: 'immediate' })
+
             await this.subscribeManager.emit({ path, event, batchId }, (p, v) =>
               this.scheduleUpdate(p, v)
             )
 
-            // 收集事件，稍后统一触发
-            // allChangeEvents.push({ path, event, batchId })
+            // 收集事件，稍后在 renderNode 更新后再次触发
+            valueChangeEvents.push({ path, event, batchId })
           }
         }
 
-        // 3. 重算控制属性（在触发 onValueChange 之前完成，确保 getRenderSchema 返回最新状态）
+        // 3. 重算控制属性（确保 getRenderSchema 返回最新状态）
         this.renderNode = this.controlEngine.computeAll(this.renderNode)
 
-        // 4. 统一触发所有 onValueChange 监听器（此时 renderNode 已经更新）
-        for (const payload of allChangeEvents) {
-          if (this.onValueChange) {
-            this.onValueChange(payload)
-          }
+        // 4. 触发普通字段的 onValueChange（computed 阶段）
+        // 此时 renderNode 已更新，控制属性（required、disabled 等）是最新的
+        for (const payload of valueChangeEvents) {
+          this.onValueChange?.({ ...payload, phase: 'computed' })
+        }
+
+        // 5. 触发列表操作的 onValueChange（computed 阶段）
+        for (const payload of listChangeEvents) {
+          this.onValueChange?.({ ...payload, phase: 'computed' })
         }
         // while 循环自动检查是否有新更新
         // 如果 handler 中调用了 scheduleUpdate，下一次循环继续处理
