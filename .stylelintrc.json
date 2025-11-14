@@ -1,16 +1,9 @@
 {
-  "extends": [
-    "stylelint-config-standard"
-  ],
-  "plugins": [
-    "stylelint-order",
-    "stylelint-prettier"
-  ],
+  "extends": ["stylelint-config-standard"],
+  "plugins": ["stylelint-order", "stylelint-prettier"],
   "overrides": [
     {
-      "files": [
-        "**/*.(html|vue)"
-      ],
+      "files": ["**/*.(html|vue)"],
       "customSyntax": "postcss-html"
     }
   ],
@@ -24,6 +17,7 @@
     "**/*.yaml"
   ],
   "rules": {
+    "no-empty-source": null,
     "prettier/prettier": true,
     "selector-class-pattern": null,
     "keyframes-name-pattern": "off",
@@ -32,17 +26,13 @@
     "selector-pseudo-element-no-unknown": [
       true,
       {
-        "ignorePseudoElements": [
-          "v-deep"
-        ]
+        "ignorePseudoElements": ["v-deep"]
       }
     ],
     "selector-pseudo-class-no-unknown": [
       true,
       {
-        "ignorePseudoClasses": [
-          "deep"
-        ]
+        "ignorePseudoClasses": ["deep"]
       }
     ],
     "order/properties-order": [

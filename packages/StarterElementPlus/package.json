@@ -1,15 +1,16 @@
 {
   "name": "@form-renderer/starter-element-plus",
-  "version": "1.0.0-alpha.4",
+  "version": "1.0.0-alpha.12",
   "description": "开箱即用的 ElementPlus 表单渲染器启动器",
   "type": "module",
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
+      "types": "dist/index.d.ts",
+      "import": "dist/index.js",
+      "default": "dist/index.js"
     }
   },
   "files": [

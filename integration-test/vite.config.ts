@@ -7,22 +7,23 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src'),
-      '@form-renderer/engine': resolve(
-        __dirname,
-        '../packages/Engine/src/index.ts'
-      ),
+      '@form-renderer/engine': resolve(__dirname, '../packages/Engine/src'),
       '@form-renderer/adapter-vue3': resolve(
         __dirname,
-        '../packages/AdapterVue3/src/index.ts'
+        '../packages/AdapterVue3/src'
+      ),
+      '@form-renderer/preset-element-plus/style.css': resolve(
+        __dirname,
+        '../packages/StarterElementPlus/src/empty.css'
       ),
       '@form-renderer/preset-element-plus': resolve(
         __dirname,
-        '../packages/PresetElementPlus/src/index.ts'
+        '../packages/PresetElementPlus/src'
+      ),
+      '@form-renderer/starter-element-plus': resolve(
+        __dirname,
+        '../packages/StarterElementPlus/src'
       )
-      // '@form-renderer/starter-element-plus': resolve(
-      //   __dirname,
-      //   '../packages/StarterElementPlus/src/index.ts'
-      // )
     }
   },
   server: {

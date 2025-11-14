@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { FormModel, JsonSchemaNode } from '@form-renderer/engine'
+import type { FormModel, JsonSchemaNode } from '@form-renderer/engine'
 import type { ComponentDefinition } from '@form-renderer/adapter-vue3'
-import { FormRenderer } from '@form-renderer/starter-element-plus'
 import { commonFieldEventMapping } from '@form-renderer/preset-element-plus'
-
+import { FormRenderer } from '@form-renderer/starter-element-plus'
 import DynamicField from '@/custom/DynamicField.vue'
 
 import { ComplexDemoSchema, ComplexDemoModel } from '@/cases'
@@ -12,7 +11,6 @@ const formRef = ref()
 
 const formData = ref<FormModel>(ComplexDemoModel)
 const formSchema = ref<JsonSchemaNode>(ComplexDemoSchema)
-
 const extraComponents: ComponentDefinition[] = [
   {
     type: 'field',

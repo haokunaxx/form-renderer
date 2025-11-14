@@ -10,19 +10,15 @@ export default defineConfig(({ mode }) => {
     resolve: {
       alias: {
         '@': resolve(__dirname, './src'),
-        // 开发环境直接使用源码
-        '@form-renderer/engine': resolve(__dirname, '../Engine/src/index.ts'),
-        '@form-renderer/adapter-vue3': resolve(
+        '@form-renderer/preset-element-plus/style.css': resolve(
           __dirname,
-          '../AdapterVue3/src/index.ts'
+          './src/empty.css'
         ),
+        '@form-renderer/engine': resolve(__dirname, '../Engine/src'),
+        '@form-renderer/adapter-vue3': resolve(__dirname, '../AdapterVue3/src'),
         '@form-renderer/preset-element-plus': resolve(
           __dirname,
-          '../PresetElementPlus/src/index.ts'
-        ),
-        '@form-renderer/preset-element-plus/style': resolve(
-          __dirname,
-          '../PresetElementPlus/dist/index.css'
+          '../PresetElementPlus/src'
         )
       }
     },

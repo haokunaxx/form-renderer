@@ -1,19 +1,19 @@
 {
   "name": "@form-renderer/preset-element-plus",
-  "version": "1.0.0-alpha.4",
+  "version": "1.0.0-alpha.12",
   "description": "ElementPlus preset for form-renderer",
   "type": "module",
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "style": "./dist/index.css",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "style": "dist/index.css",
   "exports": {
     ".": {
-      "import": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "types": "dist/index.d.ts",
+      "import": "dist/index.js",
+      "default": "dist/index.js"
     },
-    "./style.css": "./dist/index.css",
-    "./dist/style.css": "./dist/index.css"
+    "./style.css": "dist/index.css"
   },
   "files": [
     "dist"

@@ -11,11 +11,8 @@ export default defineConfig(({ mode }) => {
     resolve: {
       alias: {
         '@': resolve(__dirname, 'src'),
-        '@form-renderer/adapter-vue3': resolve(
-          __dirname,
-          '../AdapterVue3/src/index.ts'
-        ),
-        '@form-renderer/engine': resolve(__dirname, '../Engine/src/index.ts')
+        '@form-renderer/engine': resolve(__dirname, '../Engine/src'),
+        '@form-renderer/adapter-vue3': resolve(__dirname, '../AdapterVue3/src')
       }
     },
     build: isLib
