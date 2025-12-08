@@ -276,7 +276,6 @@ export class UpdateScheduler {
 
         // 3. 重算控制属性（确保 getRenderSchema 返回最新状态）
         this.renderNode = this.controlEngine.computeAll(this.renderNode)
-
         // 4. 触发普通字段的 onValueChange（computed 阶段）
         // 此时 renderNode 已更新，控制属性（required、disabled 等）是最新的
         for (const payload of valueChangeEvents) {

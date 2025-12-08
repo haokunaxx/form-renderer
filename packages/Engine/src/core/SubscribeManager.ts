@@ -90,6 +90,7 @@ export class SubscribeManager {
     }
 
     this.buildIndex(subscribes)
+    console.log('index', this.index, subscribes)
   }
 
   /**
@@ -210,6 +211,10 @@ export class SubscribeManager {
       return handlers
     }
 
+    /*
+      FIXME: 这里的 rowInfo 的 relativePart 是不是存在 bug
+      比如监听了 .list，触发的路径是 .list.0.fieldA，那么 rowInfo 的 relativePart 是 .fieldA， list 就没办法找到并且被触发
+    */
     const { rowPath, relativePart } = rowInfo
     const relativePattern = `.${relativePart}`
 
@@ -369,8 +374,9 @@ export class SubscribeManager {
     const { path, event, batchId } = payload
 
     // 查找匹配的订阅
+    console.log('payload', payload)
     const matchedHandlers = this.findHandlers(path)
-    // console.log('matchedHandlers', matchedHandlers)
+    console.log('matchedHandlers', matchedHandlers)
 
     if (matchedHandlers.length === 0) {
       return
@@ -386,6 +392,7 @@ export class SubscribeManager {
       }
 
       // 检查订阅者路径是否需要展开（在 list 中）
+      // 在 订阅者（Subscriber）位于列表（List）内部，而触发源（Target）位于列表外部（或层级更浅） 时执行。
       if (subscriberPath.includes('.items.')) {
         // 订阅者在 list 中，需要展开为所有行
         const expandedPaths = this.expandSubscriberPath(subscriberPath)

@@ -1,4 +1,5 @@
-packages: 
+packages:
   - packages/**
   - integration-test
   - release-version-verification-project
+  - react-form-renderer-test

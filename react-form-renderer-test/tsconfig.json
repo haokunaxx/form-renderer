@@ -1,0 +1,15 @@
+{
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "isolatedModules": true,
+    "paths": {
+      "@form-renderer/adapter-react": ["../packages/AdapterReact/src"],
+      "@form-renderer/preset-antd": ["../packages/PresetAntd/src"]
+    }
+  }
+}

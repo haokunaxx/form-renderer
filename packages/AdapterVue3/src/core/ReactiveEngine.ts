@@ -51,7 +51,7 @@ export class ReactiveEngine {
     // 初始化响应式引用
     this.renderSchemaRef = shallowRef(this.engine.getRenderSchema())
     this.modelRef = shallowRef(this.engine.getValue())
-
+    console.log(this.renderSchemaRef)
     // 创建更新调度器（可选）
     if (enableUpdateScheduler) {
       this.updateScheduler = new UpdateScheduler(this.engine)
